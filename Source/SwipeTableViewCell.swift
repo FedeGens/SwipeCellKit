@@ -45,6 +45,7 @@ open class SwipeTableViewCell: UITableViewCell {
     /// :nodoc:
     open override var layoutMargins: UIEdgeInsets {
         get {
+            if swipeController == nil { configure() }
             return frame.origin.x != 0 ? swipeController.originalLayoutMargins : super.layoutMargins
         }
         set {
